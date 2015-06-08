@@ -5,7 +5,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class EmployeeServiceJpa implements EmployeeService {
@@ -21,7 +23,9 @@ public class EmployeeServiceJpa implements EmployeeService {
     @Override
     @Transactional(readOnly = true)
     public Employee findEmployeeById(long id) {
-        //return em.find(Employee.class, id);
+//        Map hints = new HashMap();
+//        hints.put("javax.persistence.fetchgraph", em.getEntityGraph("graph.Employee.phonesAndAddresses"));
+//        return em.find(Employee.class, id, hints);
 
         //return em.createNamedQuery("findEmployeeById", Employee.class).setParameter("id", id).getSingleResult();
 

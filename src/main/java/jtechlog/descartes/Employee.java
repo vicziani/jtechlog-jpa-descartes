@@ -15,6 +15,9 @@ import java.util.List;
         @NamedQuery(name = "findEmployeeByIdFetchPhones", query = "select e from Employee e join fetch e.phones where e.id = :id"),
         @NamedQuery(name = "findEmployeeByIdFetchAddresses", query = "select e from Employee e join fetch e.addresses where e.id = :id")
 })
+@NamedEntityGraph(name = "graph.Employee.phonesAndAddresses",
+        attributeNodes = {@NamedAttributeNode("phones"), @NamedAttributeNode("addresses")})
+
 public class Employee implements Serializable {
     
     @Id
